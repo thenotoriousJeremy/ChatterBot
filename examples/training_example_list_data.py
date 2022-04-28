@@ -6,18 +6,16 @@ from chatterbot.trainers import ListTrainer
 This is an example showing how to train a chat bot using the
 ChatterBot ListTrainer.
 '''
+text_file= open("DPCA_short.txt", errors="ignore")
+data=text_file.read()
+listOfSentences = data.split("\n")
 
-chatbot = ChatBot('Example Bot')
+chatbot = ChatBot('DanBot')
 
 # Start by training our bot with the ChatterBot corpus data
 trainer = ListTrainer(chatbot)
 
-trainer.train([
-    'Hello, how are you?',
-    'I am doing well.',
-    'That is good to hear.',
-    'Thank you'
-])
+#trainer.train(listOfSentences)
 
 # You can train with a second list of data to add response variations
 
@@ -29,5 +27,5 @@ trainer.train([
 ])
 
 # Now let's get a response to a greeting
-response = chatbot.get_response('How are you doing today?')
+response = chatbot.get_response('Scrub')
 print(response)
